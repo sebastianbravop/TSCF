@@ -1,0 +1,2 @@
+Temperature Sensitivity Correction Function (TSCF) is a tool to smooth daily variations on dielectric matric potential readings procuded by soil temperature oscillations.
+This repositiry contains the code and example data to initiate the algorithm, as well as the visualisation of the outcomes. For further details and analysis on the function performance, we refer the reader to ... (the published paper).
