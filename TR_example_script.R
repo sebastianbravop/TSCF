@@ -1,7 +1,7 @@
 rm(list = ls())
 
 # ---- Day-scale Temperature Sensitivity Correction ----
-#' @author Sebastián Bravo Peña, Meindert Comellin, & Ole Wendroth
+#' @author Sebastián Bravo Peña, Meindert Commelin, & Ole Wendroth
  
 # This approach first requires the computation of the noise signal. For which 
 # we proposed the Convergence-Divergence Noise Signal (CDNS) function. 
