@@ -174,7 +174,7 @@ legend('topleft', legend = c(expression("h"[f]), expression("h"[s]), expression(
        lwd = c(1,1,1), cex = 0.8, bty = 'n')
 axis(side = 1, at = c(1, 13249, 26359,  39319, 52561), 
      lab = expression("01-06-2020", "01-09-2020", "01-12-2020", "01-03-2021", "01-06-2021"), cex.axis = 1)
-text(y = 250, x = 2000, expression(paste(tau, ' = -200 kPa')), col = 'darkgrey', cex = 0.8)
+text(y = 250, x = 2000, expression(paste(tau, ' = |-200| kPa')), col = 'darkgrey', cex = 0.8)
 
 # Zoomed-in 1
 plot(df$mp_f, type = 'l', lwd = 1, log = 'y', lty = 1, xlim = c(26500,28500),ylim = c(500,3000),
