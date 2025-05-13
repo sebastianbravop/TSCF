@@ -26,8 +26,8 @@ rollmean.cdns <- function(data, k1, k2) {
   idx_f <- seq(from = 1+(k1-1)/2, to = (nrow(data)-(k1-1)/2), by = 1)
   df_f  <- data.frame(idx_f) # creates the first column in the df_f
   
-  # Calculating fast SMA average for head, theta and temp
-  for (i in 3:ncol(data)) {
+  # Calculating fast SMA average for head
+  for (i in (k1-1)/2:ncol(data)) {
     df_f[[paste0(names(data)[i], "_f")]] <- NA
     
     for (j in idx_f) {
