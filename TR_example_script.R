@@ -141,7 +141,7 @@ tscf.function <- function(data, tau, k1, k2, signal = 0.3) {
       df$mp_corrected[i] <- df$mp_s[i]
     }
   }
-  # remove uncessary columns
+  # remove unnecessary columns
   df$jump <- NULL
   df$sens <- NULL
   
@@ -158,7 +158,7 @@ tau <- 200
 
 # Run both functions
 df <- rollmean.cdns(df, k1, k2)
-df <- tscf.function(df, k1, k2, tau)
+df <- tscf.function(df, tau, k1, k2)
 
 summary(df) # print summary
 
