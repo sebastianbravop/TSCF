@@ -170,5 +170,5 @@ tscf.function <- function(data, tau, k1, k2, signal = 0.3) {
 }
 ```
 ## References:
-Appel, G. (2005). Technical analysis: power tools for active investors. FT Press. 
+Appel, G. (2005). Technical analysis: power tools for active investors. FT Press. \
 Savitzky, A., & Golay, M. J. E. (1964). Smoothing and Differentiation of Data by Simplified Least Squares Procedures. Analytical Chemistry, 36(8), 1627-1639. https://doi.org/10.1021/ac60214a047 
