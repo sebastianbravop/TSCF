@@ -1,6 +1,6 @@
 # TSCF: A statistic-based tool for smoothing temperature sensitivity effects on matric potential dielectric readings
 
-The Temperature Sensitivity Correction Function (TSCF) is introduced as straightforward method to localise, quantify, and smooth the daily-scale periodic noise. This function is based on a dynamic moving average approach using a combination of two centred simple moving average (SMA) with different window size (k). First, a fast SMA (mp_f) with a window size (k1), in this example equal to a hourly period, is used to decrease data noise normally produced in this type of high resolution observations. This magnitude allows for keeping short reactions times produced by fast wetting fronts. The size of k1 can also be set to a different resolution depending on the data resolution and noise intensity (e.g., 3 hours). Secondly, a slow SMA (mp_s) with a window equal to a daily period (k2) is used to smooth the daily oscillation produced by temperature sensitivity effects. The resulting corrected time series is a dynamic combination of fast and slow smoothing routines.
+The Temperature Sensitivity Correction Function (TSCF) is introduced as a straightforward method to localise, quantify, and smooth the daily-scale periodic noise. This function is based on a dynamic moving average approach using a combination of two centred simple moving averages (SMA) with different window sizes (k). First, a fast SMA (mp_f) with a window size (k1), in this example equal to an hourly period, is used to decrease data noise normally produced in this type of high-resolution observations. This magnitude allows for keeping short reaction times produced by fast wetting fronts. The size of k1 can also be set to a different resolution depending on the data resolution and noise intensity (e.g., 3 hours). Secondly, a slow SMA (mp_s) with a window equal to a daily period (k2) is used to smooth the daily oscillation produced by temperature sensitivity effects. The resulting corrected time series is a dynamic combination of fast and slow smoothing routines.
 
 ### How does it work?
 
@@ -169,3 +169,6 @@ tscf.function <- function(data, tau, k1, k2, signal = 0.3) {
   return(df)
 }
 ```
+## References:
+Appel, G. (2005). Technical analysis: power tools for active investors. FT Press. 
+Savitzky, A., & Golay, M. J. E. (1964). Smoothing and Differentiation of Data by Simplified Least Squares Procedures. Analytical Chemistry, 36(8), 1627-1639. https://doi.org/10.1021/ac60214a047 
