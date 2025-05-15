@@ -26,8 +26,8 @@ rollmean.cdns <- function(data, k1, k2) {
   idx_f <- seq(from = 1+(k1-1)/2, to = (nrow(data)-(k1-1)/2), by = 1)
   df_f  <- data.frame(idx_f) # creates the first column in the df_f
   
-  # Calculating fast SMA average for head, theta and temp
-  for (i in 3:ncol(data)) {
+  # Calculating fast SMA average for head
+  for (i in (k1-1)/2:ncol(data)) {
     df_f[[paste0(names(data)[i], "_f")]] <- NA
     
     for (j in idx_f) {
@@ -141,7 +141,7 @@ tscf.function <- function(data, tau, k1, k2, signal = 0.3) {
       df$mp_corrected[i] <- df$mp_s[i]
     }
   }
-  # remove uncessary columns
+  # remove unnecessary columns
   df$jump <- NULL
   df$sens <- NULL
   
@@ -158,7 +158,7 @@ tau <- 200
 
 # Run both functions
 df <- rollmean.cdns(df, k1, k2)
-df <- tscf.function(df, k1, k2, tau)
+df <- tscf.function(df, tau, k1, k2)
 
 summary(df) # print summary
 
@@ -174,7 +174,7 @@ legend('topleft', legend = c(expression("h"[f]), expression("h"[s]), expression(
        lwd = c(1,1,1), cex = 0.8, bty = 'n')
 axis(side = 1, at = c(1, 13249, 26359,  39319, 52561), 
      lab = expression("01-06-2020", "01-09-2020", "01-12-2020", "01-03-2021", "01-06-2021"), cex.axis = 1)
-text(y = 250, x = 2000, expression(paste(tau, ' = -200 kPa')), col = 'darkgrey', cex = 0.8)
+text(y = 250, x = 2000, expression(paste(tau, ' = |-200| kPa')), col = 'darkgrey', cex = 0.8)
 
 # Zoomed-in 1
 plot(df$mp_f, type = 'l', lwd = 1, log = 'y', lty = 1, xlim = c(26500,28500),ylim = c(500,3000),
