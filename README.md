@@ -4,11 +4,11 @@ The Temperature Sensitivity Correction Function (TSCF) is introduced as straight
 
 ### How does it work?
 
-To produce an algorithm able to recognise and implement a proper combination of these time series, we subtracted the mp_f from the mp_s to obtain a convergence-divergence noise signal (CDNS). This application resembles to the Moving Average Convergence-Divergence (MACD) oscillator proposed by Appel (2005) for economic sciences, with the simplification of using the simple unweighted mean (Savitzky & Golay, 1964) instead of the exponential moving average. The CDNS function allows to dynamically localise and quantify the intensity of the noise signal.
+To produce an algorithm able to recognise and implement a proper combination of these time series, we subtracted the mp_f from the mp_s to obtain a convergence-divergence noise signal (CDNS). This application resembles the Moving Average Convergence-Divergence (MACD) oscillator proposed by Appel (2005) for economic sciences, with the simplification of using the simple unweighted mean (Savitzky & Golay, 1964) instead of the exponential moving average. The CDNS function allows for localising and quantifying the intensity of the noise signal dynamically.
 
-We avoid smoothing important wetting processes in over the dry season. When a wetting front reaches the matric potential sensor under lower water content (more negative potentials), the observed potential will drop towards zero and will change the noise periodical pattern producing an easily-noticeable peak in the CDNS spectrum. The capacity to recognise these peaks is best when using non-linear magnitudes of matric potential (e.g., kPa). This enables us to set the two conditions used for combining both mp_f and mp_s time series into a corrected series of data over an iterative process: i) the matric potential threshold (Tau, τ) at which the temperature sensitivity effects become significant (or visible), and ii) the change in the noise pattern when a wetting process is perceived.
+We avoid smoothing important wetting processes during the dry season. When a wetting front reaches the matric potential sensor under lower water content (more negative potentials), the observed potential will drop towards zero and will change the noise periodic pattern, producing an easily-noticeable peak in the CDNS spectrum. The capacity to recognise these peaks is best when using non-linear magnitudes of matric potential (e.g., kPa). This enables us to set the two conditions used for combining both mp_f and mp_s time series into a corrected series of data over an iterative process: i) the matric potential threshold (Tau, τ) at which the temperature sensitivity effects become significant (or visible), and ii) the change in the noise pattern when a wetting process is perceived.
 
-The successful dynamic combination of h_f and h_s ensures that fast wetting fronts are no smoothed and therefore described in high resolution.
+The successful dynamic combination of mp_f and mp_s ensures that fast wetting fronts are not smoothed and therefore described in high resolution.
 
 ### Authors:
 
@@ -61,7 +61,7 @@ rollmean.cdns <- function(data, k1, k2) {
   }
   # SLOW simple moving average (SMA)
   idx_s <- seq(from = 1+(k2-1)/2, to = (nrow(data)-(k2-1)/2), by = 1)
-  df_s  <- data.frame(idx_s) # this create the first column in the df_s
+  df_s  <- data.frame(idx_s) # this creates the first column in the df_s
   
   # Calculating moving average for head
   for (i in 3) {
